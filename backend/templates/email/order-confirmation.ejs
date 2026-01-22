@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= subject %></title>
+  <style>
+    body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 20px; background: #f5f5f5; }
+    .container { background: white; padding: 30px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+    .header { background: linear-gradient(135deg, #27ae60, #2ecc71); color: white; padding: 30px; border-radius: 10px 10px 0 0; text-align: center; }
+    .header h1 { margin: 0; font-size: 24px; }
+    .order-id { background: #e8f5e9; padding: 15px; border-radius: 5px; text-align: center; margin: 20px 0; font-size: 18px; font-weight: bold; color: #27ae60; }
+    .section { margin: 20px 0; padding: 20px; background: #f8f9fa; border-radius: 8px; border-left: 4px solid #27ae60; }
+    .section h3 { color: #2c3e50; margin-top: 0; }
+    .info-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin: 15px 0; }
+    .info-item { padding: 10px; background: white; border-radius: 5px; border: 1px solid #e0e0e0; }
+    .info-label { font-weight: bold; color: #555; font-size: 14px; }
+    .info-value { color: #333; font-size: 16px; margin-top: 5px; }
+    .button { display: inline-block; padding: 12px 24px; background: #27ae60; color: white; text-decoration: none; border-radius: 5px; margin: 20px 0; font-weight: bold; text-align: center; }
+    .footer { margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee; color: #666; font-size: 12px; text-align: center; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>🎉 Order Confirmed!</h1>
+      <p>Thank you for your purchase, <%= buyerName %>!</p>
+    </div>
+
+    <div class="order-id">
+      Order #: <%= orderId %><br>
+      Date: <%= orderDate %> at <%= orderTime %>
+    </div>
+
+    <div class="section">
+      <h3>📦 Order Summary</h3>
+      <div class="info-grid">
+        <div class="info-item">
+          <div class="info-label">Crop</div>
+          <div class="info-value"><%= cropName %> - <%= variety %></div>
+        </div>
+        <div class="info-item">
+          <div class="info-label">Quantity</div>
+          <div class="info-value"><%= quantity %> <%= unit %></div>
+        </div>
+        <div class="info-item">
+          <div class="info-label">Price per <%= unit %></div>
+          <div class="info-value">₹<%= pricePerUnit %></div>
+        </div>
+        <div class="info-item">
+          <div class="info-label">Total Amount</div>
+          <div class="info-value">₹<%= totalAmount %></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h3>👨‍🌾 Farmer Details</h3>
+      <div class="info-grid">
+        <div class="info-item">
+          <div class="info-label">Farmer Name</div>
+          <div class="info-value"><%= farmerName %></div>
+        </div>
+        <div class="info-item">
+          <div class="info-label">Farm Name</div>
+          <div class="info-value"><%= farmName %></div>
+        </div>
+        <div class="info-item">
+          <div class="info-label">Contact</div>
+          <div class="info-value"><%= farmerPhone %></div>
+        </div>
+        <div class="info-item">
+          <div class="info-label">Pickup Location</div>
+          <div class="info-value"><%= pickupAddress %></div>
+        </div>
+      </div>
+    </div>
+
+    <div style="text-align: center; margin: 30px 0;">
+      <a href="<%= orderUrl %>" class="button" style="background: #27ae60;">
+        👉 View Order Details
+      </a>
+    </div>
+
+    <div class="footer">
+      <p>© <%= year %> Farmer Marketplace. All rights reserved.</p>
+      <p>Need help? Contact: <%= supportEmail %></p>
+    </div>
+  </div>
+</body>
+</html>

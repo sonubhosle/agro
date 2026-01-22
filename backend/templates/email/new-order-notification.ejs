@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= subject %></title>
+  <style>
+    body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 20px; background: #f5f5f5; }
+    .container { background: white; padding: 30px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+    .header { background: linear-gradient(135deg, #2196F3, #03A9F4); color: white; padding: 30px; border-radius: 10px 10px 0 0; text-align: center; }
+    .alert { background: #fff3cd; padding: 15px; border-radius: 5px; margin: 20px 0; text-align: center; border-left: 4px solid #ffc107; font-weight: bold; }
+    .order-id { background: #e3f2fd; padding: 15px; border-radius: 5px; text-align: center; margin: 20px 0; font-size: 18px; font-weight: bold; color: #1976D2; }
+    .info-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin: 15px 0; }
+    .info-item { padding: 10px; background: #f8f9fa; border-radius: 5px; border: 1px solid #e0e0e0; }
+    .button { display: inline-block; padding: 12px 24px; background: #2196F3; color: white; text-decoration: none; border-radius: 5px; margin: 20px 0; font-weight: bold; text-align: center; }
+    .footer { margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee; color: #666; font-size: 12px; text-align: center; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>🚜 New Order Received!</h1>
+      <p>Congratulations <%= farmerName %>! You have a new order.</p>
+    </div>
+
+    <div class="alert">
+      ⚡ Action Required: Please confirm this order within 24 hours
+    </div>
+
+    <div class="order-id">
+      Order #: <%= orderId %><br>
+      Received: <%= orderDate %> at <%= orderTime %>
+    </div>
+
+    <h3>📊 Order Details</h3>
+    <div class="info-grid">
+      <div class="info-item">
+        <strong>Crop:</strong><br>
+        <%= cropName %> - <%= variety %>
+      </div>
+      <div class="info-item">
+        <strong>Quantity:</strong><br>
+        <%= quantity %> <%= unit %>
+      </div>
+      <div class="info-item">
+        <strong>Price per <%= unit %>:</strong><br>
+        ₹<%= pricePerUnit %>
+      </div>
+      <div class="info-item">
+        <strong>Total Amount:</strong><br>
+        ₹<%= totalAmount %>
+      </div>
+    </div>
+
+    <h3>👤 Buyer Information</h3>
+    <div class="info-grid">
+      <div class="info-item">
+        <strong>Buyer Name:</strong><br>
+        <%= buyerName %>
+      </div>
+      <div class="info-item">
+        <strong>Contact Email:</strong><br>
+        <%= buyerEmail %>
+      </div>
+      <div class="info-item">
+        <strong>Phone:</strong><br>
+        <%= buyerPhone %>
+      </div>
+      <div class="info-item">
+        <strong>Delivery Type:</strong><br>
+        <%= deliveryType %>
+      </div>
+    </div>
+
+    <div style="text-align: center; margin: 30px 0;">
+      <a href="<%= orderUrl %>" class="button">
+        👉 View & Manage Order
+      </a>
+    </div>
+
+    <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; margin: 20px 0;">
+      <h4 style="margin-top: 0;">📝 Next Steps:</h4>
+      <ol style="margin: 10px 0; padding-left: 20px;">
+        <li>Review order details</li>
+        <li>Confirm availability</li>
+        <li>Update order status</li>
+        <li>Prepare for delivery/pickup</li>
+      </ol>
+    </div>
+
+    <div style="text-align: center; margin: 20px 0;">
+      <a href="<%= manageOrdersUrl %>" style="color: #2196F3; text-decoration: none;">
+        📋 View All Orders
+      </a>
+    </div>
+
+    <div class="footer">
+      <p>© <%= year %> Farmer Marketplace</p>
+      <p>This is an automated notification</p>
+    </div>
+  </div>
+</body>
+</html>
